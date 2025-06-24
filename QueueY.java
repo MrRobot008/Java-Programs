@@ -32,7 +32,7 @@ public class QueueY {
             for (int i = 0; i < rear; i++) {
                 arr[i] = arr[i + 1];
             }
-            rear--;
+           rear--;
             return front;
         }
 
@@ -41,7 +41,7 @@ public class QueueY {
                 System.out.println("Queue is Empty");
                 return -1;
             }
-            return arr[0];
+            return arr[0]; 
         }
     }
 

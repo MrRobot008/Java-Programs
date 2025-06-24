@@ -1,5 +1,5 @@
 public class cqueue {
-    static class queue{
+        static class queue{
         static int arr[];
         static int  size;
         static int rear = -1;

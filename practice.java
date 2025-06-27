@@ -4,7 +4,7 @@ public class practice{
         static int size;
         static int rear = -1;
         static int front = -1;
-
+        
         queue(int n){
             this.size = n;
             arr = new int[n];

@@ -1,29 +1,65 @@
-
 class poly{
-     static class airplane{
-        String maker;
-        int wings;
-        int weight;
+   static class queue{
+        static int arr[];
+        static int size;
+        static int rear = -1;
+        static int front = -1;
 
-        airplane(){
-            this.maker = "AF##13";
-            this.wings = 1333;
-            this.weight = 1200000;
-
-        }
-}
-        
-        static class Boeing extends airplane{
-            String fuselage = "v34334";
-            int wings = 0033;
-            int weight = 93931;
+        queue(int n){
+            arr = new int[n];
+            this.size = n;
         }
 
-    
+        public static boolean isEmpty(){
+            return rear == -1 && front == -1;
+        }
+        public static boolean isFull(){
+            return (rear +1) % size == front; 
+        }
+        public static void add(int data){
+            if(rear == size -1){
+                System.out.println("Queue Full");
+                return;
+            }
+            rear = (rear + 1) % size;
+            arr[rear] = data;
+        }
+        public static int remove(){
+            if(isEmpty()){
+                System.out.println("Queue Empty");
+                return -1;
+            }
+            if(front == rear){
+                 front = rear = -1;
+            }
+            front = (front + 1 ) % size;
+            int result = arr[front];
+            return result;
+        }
+        public int peek(){
+            if(isEmpty()){
+                System.out.println("Queue Empty");
+                return -1;
+            }
+            return arr[0];
+
+        }
+
+    }
     public static void main(String[] args) {
-        Boeing b = new Boeing();
-        System.out.println("Maker is "+b.maker);
-        System.out.println("Weight is "+b.weight);
+        queue q = new queue(5);
+        q.add(1);
+        q.add(12);
+        q.add(16);
+        q.add(17);
+        q.add(20);
+        q.remove();
+        q.remove();
+
+        while(!q.isEmpty()){
+            System.out.println(q.peek());
+            q.remove();
+        }
 
     }
 }
